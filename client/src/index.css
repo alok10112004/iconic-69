@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+* { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; background: #000; }
+
+button {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+button:active:not(:disabled) { transform: scale(0.96); }
+button:disabled { cursor: not-allowed; opacity: 0.6; }
+
+input { transition: all 0.2s ease; }
+input:focus { outline: none; }
+
+/* ========== KEYFRAMES ========== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(239, 68, 68, 0.8); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes dice-roll {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(1.1); }
+  50% { transform: rotate(180deg) scale(1); }
+  75% { transform: rotate(270deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@keyframes coin-flip {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(1800deg); }
+}
+@keyframes crash-explode {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes result-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.9); }
+}
+
+/* ========== ROULETTE ========== */
+@keyframes rlt-wheel-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(1800deg); }
+}
+
+@keyframes rlt-ball-spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-46%);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-1440deg) translateY(-46%);
+  }
+}
+
+@keyframes result-pulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+  50% { box-shadow: 0 0 60px rgba(255, 215, 0, 1); }
+}
+
+/* ========== UTILITY ========== */
+.animate-fadeIn { animation: fadeIn 0.3s ease-out; }
+.animate-slideUp { animation: slideUp 0.4s ease-out; }
+.animate-pulse-glow { animation: pulse-glow 1.5s ease-in-out infinite; }
+.animate-shake { animation: shake 0.4s ease-in-out; }
+.animate-bounce-in { animation: bounce-in 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+.animate-dice-roll { animation: dice-roll 0.6s ease-in-out; }
+.animate-coin-flip { animation: coin-flip 1s ease-out; }
+.animate-crash-explode { animation: crash-explode 0.5s ease-out forwards; }
+.animate-spin-slow { animation: spin-slow 1s linear infinite; }
+.result-glow { animation: result-glow 1s ease-in-out infinite; }
+.transition-smooth { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.roulette-result-glow { animation: result-pulse 1s ease-in-out infinite; }
+
+.roulette-number {
+  transition: all 0.15s ease;
+}
+.roulette-number:hover {
+  transform: scale(1.15);
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+}
